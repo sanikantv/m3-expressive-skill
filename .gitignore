@@ -49,3 +49,6 @@ verify/shapes-svg/build/
 
 # Copied from art/ by the site build (npm run media)
 site/public/media/
+
+# Intro video source (Remotion): kept locally, not published
+video/

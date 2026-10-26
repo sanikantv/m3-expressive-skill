@@ -105,7 +105,6 @@ skills/m3-expressive-compose/
 verify/                         Gradle project that compiles every snippet (+ shapes-svg: MaterialShapes → SVG)
 scripts/sync_snippets.py        copies compiled snippets into the markdown
 site/                           expressive.sanikant.dev (Astro + Starlight), see site/DEPLOY.md
-video/                          the intro video (Remotion + ElevenLabs voice), see video/README.md
 ```
 
 ## Keeping it current
