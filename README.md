@@ -1,4 +1,4 @@
-<p align="center"><a href="https://expressive.sanikant.dev"><img src="art/social-preview.png" alt="M3 Expressive Skill: Material 3 Expressive Compose code your agent gets right" width="720" /></a></p>
+<p align="center"><a href="https://expressive.sanikant.dev/#intro"><img src="art/intro-poster.jpg" alt="Watch the 78-second intro video of the M3 Expressive Skill" width="720" /></a><br /><sub>▶ <a href="https://expressive.sanikant.dev/#intro">Watch the intro</a> · <a href="https://github.com/sanikantv/m3-expressive-skill/raw/main/art/intro.mp4">Download the MP4</a></sub></p>
 
 <h1 align="center">M3 Expressive Skill for Jetpack Compose</h1>
 
@@ -105,6 +105,7 @@ skills/m3-expressive-compose/
 verify/                         Gradle project that compiles every snippet (+ shapes-svg: MaterialShapes → SVG)
 scripts/sync_snippets.py        copies compiled snippets into the markdown
 site/                           expressive.sanikant.dev (Astro + Starlight), see site/DEPLOY.md
+video/                          the intro video (Remotion + ElevenLabs voice), see video/README.md
 ```
 
 ## Keeping it current

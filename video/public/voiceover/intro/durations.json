@@ -1,0 +1,38 @@
+{
+  "01-hook": {
+    "seconds": 7.523,
+    "hash": "d13f474e698a"
+  },
+  "02-problem": {
+    "seconds": 7.709,
+    "hash": "22e08077bdc8"
+  },
+  "03-meet": {
+    "seconds": 9.892,
+    "hash": "7fbb7efd5d2e"
+  },
+  "04-api-status": {
+    "seconds": 7.291,
+    "hash": "8608126e168b"
+  },
+  "05-components": {
+    "seconds": 9.799,
+    "hash": "a4a3a4ba4e6a"
+  },
+  "06-shapes-motion": {
+    "seconds": 6.455,
+    "hash": "0b1e497f51ee"
+  },
+  "07-design": {
+    "seconds": 7.941,
+    "hash": "316edbd7b6c0"
+  },
+  "08-compiled": {
+    "seconds": 6.641,
+    "hash": "0415f7415473"
+  },
+  "09-cta": {
+    "seconds": 6.873,
+    "hash": "1f7396b53d35"
+  }
+}

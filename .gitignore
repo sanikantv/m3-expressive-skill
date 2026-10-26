@@ -46,3 +46,6 @@ site/.astro/
 site/public/api/
 site/og-src/
 verify/shapes-svg/build/
+
+# Copied from art/ by the site build (npm run media)
+site/public/media/

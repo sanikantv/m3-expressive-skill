@@ -7,12 +7,13 @@
     "shapes": "cd ../verify && ./gradlew -q :shapes-svg:run",
     "snippets": "cd ../verify && ./gradlew :snippets:assembleDebug --console=plain -q",
     "dev": "astro dev",
-    "build": "astro build && node scripts/fetch-icons.mjs && cp dist/404/index.html dist/404.html",
+    "build": "npm run media && astro build && node scripts/fetch-icons.mjs && cp dist/404/index.html dist/404.html",
     "build:all": "npm run snippets && npm run shapes && node scripts/gen-springs.mjs && node scripts/gen-logo.mjs && node scripts/gen-reference.mjs && npm run build",
     "preview": "astro preview",
     "deploy": "wrangler deploy",
     "check": "node scripts/check-dist.mjs",
-    "og": "node scripts/render-og.mjs"
+    "og": "node scripts/render-og.mjs",
+    "media": "mkdir -p public/media && cp ../art/intro.mp4 ../art/intro-poster.jpg public/media/"
   },
   "dependencies": {
     "@astrojs/starlight": "0.42.7",
