@@ -2,7 +2,7 @@
 # When you bump it, run ./gradlew :snippets:assembleDebug and update references/api-status.md.
 [versions]
 agp = "9.4.1"
-kotlin = "2.2.10"
+kotlin = "2.4.21"
 composeBom = "2026.09.00"
 material3 = "1.5.0-beta02"
 graphicsShapes = "1.1.0"
