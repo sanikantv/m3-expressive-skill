@@ -56,7 +56,6 @@
 
   --sl-font: 'Google Sans Flex', 'Google Sans Flex Fallback', ui-sans-serif, system-ui, sans-serif;
   --sl-content-width: 50rem;
-  --sl-text-h1: clamp(2.25rem, 5vw, 3.25rem);
   --sl-nav-height: 4.25rem;
 }
 

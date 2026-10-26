@@ -416,8 +416,7 @@
 .d-appbar-title {
   margin: 2.5rem 0 0;
   font-size: 2.25rem;
-  font-weight: 700;
-  font-stretch: 112%;
+  font-weight: 600;
   line-height: 1.1;
 }
 .d-appbar-sub {

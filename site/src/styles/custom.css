@@ -1,8 +1,5 @@
 /* Starlight dressed as a Material 3 Expressive site. Tokens live in tokens.css and springs.css. */
 
-html {
-  font-variation-settings: 'ROND' 0;
-}
 body {
   background: var(--md-surface);
 }
@@ -26,25 +23,11 @@ body {
   flex-shrink: 0;
 }
 
-/* ---------- Type: emphasized headings, wider and rounder like the M3 Expressive specimens ---------- */
+/* ---------- Type: Google Sans Flex at normal width, same as paywall.sanikant.dev ---------- */
 .sl-markdown-content :is(h1, h2, h3),
-h1#_top,
-.content-panel h1 {
-  font-weight: 650;
-  font-stretch: 108%;
-  font-variation-settings: 'ROND' 60;
-  letter-spacing: -0.012em;
-}
-.sl-markdown-content h2 {
-  font-size: clamp(1.6rem, 3vw, 2rem);
-  margin-top: 2.75rem;
-}
-.sl-markdown-content h3 {
-  font-size: 1.3rem;
-}
-.sl-markdown-content {
-  font-size: 1.0625rem;
-  line-height: 1.7;
+.hero-m3 h1 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 .sl-markdown-content a:not(.md-btn):not(.md-card) {
   color: var(--md-primary);
@@ -66,9 +49,7 @@ header.header {
   padding-inline: 1rem;
 }
 .site-title {
-  font-weight: 700;
-  font-stretch: 112%;
-  font-variation-settings: 'ROND' 100;
+  font-weight: 600;
   color: var(--md-on-surface);
   gap: 0.6rem;
 }
@@ -110,7 +91,6 @@ starlight-theme-select label {
   border-radius: var(--md-shape-full);
   padding: 0.55rem 1rem;
   color: var(--md-on-surface-variant);
-  font-size: 0.95rem;
   transition:
     background-color var(--md-spring-default-effects-ms) var(--md-spring-default-effects),
     border-radius var(--md-spring-expressive-fast-spatial-ms) var(--md-spring-expressive-fast-spatial);
@@ -132,7 +112,6 @@ starlight-theme-select label {
 .sidebar-content .group-label .large {
   font-size: 0.8rem;
   font-weight: 700;
-  font-stretch: 110%;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--md-on-surface-variant);
@@ -311,8 +290,7 @@ a.md-card:focus-visible {
 }
 .md-card strong {
   font-size: 1.1rem;
-  font-weight: 650;
-  font-stretch: 105%;
+  font-weight: 600;
   margin-top: 0.4rem;
 }
 .md-card span:not(.msr) {
@@ -381,10 +359,6 @@ body:has(.hero-m3) {
   --sl-content-width: 74rem;
 }
 body:has(.hero-m3) .sl-markdown-content > h2 {
-  font-size: clamp(1.9rem, 4vw, 2.75rem);
-  font-weight: 720;
-  font-stretch: 115%;
-  font-variation-settings: 'ROND' 100;
   margin-top: 4.5rem;
 }
 .landing-demos {

@@ -26,10 +26,10 @@ const html = ({ eyebrow, title, shape, w = 1200, h = 630 }) => `<!doctype html><
 *{margin:0;box-sizing:border-box}
 body{width:${w}px;height:${h}px;overflow:hidden;background:#FEF7FF;font-family:'Google Sans Flex';color:#1D1B20;position:relative}
 .card{position:absolute;inset:28px;border-radius:56px;background:#F3EDF7;padding:56px 72px 52px;display:flex;flex-direction:column;justify-content:space-between}
-.top{display:flex;align-items:center;gap:18px;font-size:30px;font-weight:700;font-stretch:112%;font-variation-settings:'ROND' 100}
+.top{display:flex;align-items:center;gap:18px;font-size:30px;font-weight:600}
 .top svg{width:56px;height:56px}
 .eyebrow{display:inline-block;margin-top:28px;padding:10px 22px;border-radius:999px;background:#E8DEF8;color:#4A4458;font-size:24px;font-weight:600}
-h1{font-size:58px;line-height:1.04;font-weight:780;font-stretch:118%;font-variation-settings:'ROND' 100;letter-spacing:-.02em;max-width:${w - 540}px}
+h1{font-size:62px;line-height:1.04;font-weight:700;letter-spacing:-1px;max-width:${w - 540}px}
 h1 em{font-style:normal;color:#6750A4}
 .foot{display:flex;gap:14px;font-size:22px;font-weight:600;color:#49454F}
 .chip{padding:8px 18px;border-radius:12px;background:#FFFFFF}
