@@ -115,7 +115,7 @@ When a new material3 version ships:
 2. Fix anything that no longer compiles: `cd verify && ./gradlew :snippets:assembleDebug`
 3. Copy the code into the docs: `python3 scripts/sync_snippets.py`
 4. Redo the tables in `api-status.md` (the steps are at the bottom of that file).
-5. The docs site ([m3-expressive-skill-site](https://github.com/sanikantv/m3-expressive-skill-site)) rebuilds from this repo daily, or run its `npm run build:all`.
+5. The docs site, [expressive.sanikant.dev](https://expressive.sanikant.dev), rebuilds from this repo daily.
 
 ## Related
 
