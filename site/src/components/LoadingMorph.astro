@@ -1,0 +1,100 @@
+---
+// A web rendition of LoadingIndicator: it morphs through LoadingIndicatorDefaults'
+// IndeterminateIndicatorPolygons while rotating. Each pair's start and end paths come from
+// androidx.graphics.shapes.Morph (via verify/shapes-svg), whose output is a linear blend of matched
+// cubics, so blending the two paths' numbers here reproduces the real morph.
+import shapes from '../data/shapes.json';
+
+interface Props {
+  size?: number;
+  contained?: boolean;
+  label?: string;
+  class?: string;
+}
+const { size = 48, contained = false, label = 'Loading', class: cls } = Astro.props;
+const pairs = shapes.loading.map((p) => [p.frames[0], p.frames[p.frames.length - 1]]);
+---
+
+<svg
+  class:list={['loading-morph', { contained }, cls]}
+  viewBox={contained ? '-30 -30 160 160' : '-4 -4 108 108'}
+  width={size}
+  height={size}
+  role="img"
+  aria-label={label}
+  data-pairs={JSON.stringify(pairs)}
+>
+  {contained && <circle cx="50" cy="50" r="80" class="lm-container" />}
+  <g class="lm-spin"><path d={pairs[0][0]} class="lm-shape" /></g>
+</svg>
+
+<script>
+  // Damped spring from 0 to 1 (unit mass), the expressive fast-spatial spec: damping 0.6, stiffness 800.
+  const spring = (t: number) => {
+    const w0 = Math.sqrt(800), z = 0.6, wd = w0 * Math.sqrt(1 - z * z);
+    return 1 - Math.exp(-z * w0 * t) * (Math.cos(wd * t) + ((z * w0) / wd) * Math.sin(wd * t));
+  };
+  const num = /-?\d+(?:\.\d+)?/g;
+
+  function run(svg: SVGSVGElement) {
+    const pairs: [string, string][] = JSON.parse(svg.dataset.pairs!);
+    const path = svg.querySelector('path.lm-shape')!;
+    const parsed = pairs.map(([a, b]) => ({ text: a.split(num), from: a.match(num)!.map(Number), to: b.match(num)!.map(Number) }));
+    let index = 0, start = performance.now();
+    const step = (now: number) => {
+      const p = parsed[index];
+      const t = (now - start) / 1000;
+      const k = spring(Math.min(t, 0.6));
+      let d = p.text[0];
+      for (let i = 0; i < p.from.length; i++) d += (p.from[i] + (p.to[i] - p.from[i]) * k).toFixed(2) + p.text[i + 1];
+      path.setAttribute('d', d);
+      if (t > 0.65) {
+        index = (index + 1) % parsed.length;
+        start = now;
+      }
+      if (svg.isConnected) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver((entries) =>
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        io.unobserve(e.target);
+        run(e.target as SVGSVGElement);
+      }),
+    );
+    document.querySelectorAll<SVGSVGElement>('svg.loading-morph').forEach((s) => io.observe(s));
+  }
+</script>
+
+<style>
+  .loading-morph {
+    display: block;
+    overflow: visible;
+  }
+  .lm-shape {
+    fill: var(--md-primary);
+  }
+  .contained .lm-container {
+    fill: var(--md-primary-container);
+  }
+  .contained .lm-shape {
+    fill: var(--md-on-primary-container);
+  }
+  .lm-spin {
+    transform-origin: 50px 50px;
+    animation: lm-rotate 4.5s linear infinite;
+  }
+  @keyframes lm-rotate {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lm-spin {
+      animation: none;
+    }
+  }
+</style>

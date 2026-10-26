@@ -1,0 +1,38 @@
+---
+title: Changelog
+description: Release notes for the M3 Expressive Compose skill, including which material3 version each release was checked against.
+keywords: [m3 expressive skill changelog, material3 1.5.0-beta02 skill]
+sidebar:
+  label: Changelog
+---
+
+## 0.1.0 (unreleased)
+
+Checked against `androidx.compose.material3` **1.5.0-beta02**.
+
+- `SKILL.md` covers:
+  - rules, starting with "check the version first"
+  - a map from old components to their Expressive replacements
+  - the workflow
+  - design guidance
+- `expressive-design.md`:
+  - Google's seven tactics and hero moments, from the
+    [launch post](https://m3.material.io/blog/building-with-m3-expressive)
+  - patterns seen in Google's own examples
+  - variable-font emphasis
+  - shapes as data highlights
+- `api-status.md`:
+  - which APIs are stable, opt-in, internal or missing in 1.4.0, the 1.5.0 alphas, beta01 and beta02
+  - deprecations since 1.4.0, each with its replacement
+- Theme, motion (spring values), shapes (the 35 `MaterialShapes` and morphing), components and
+  audit references.
+- 28 Kotlin snippets, compiled in CI by `verify/`.
+
+## How the checks work
+
+- `verify/snippets` is an Android library module that holds every Kotlin sample between
+  `// region` and `// endregion` markers.
+- CI runs `./gradlew :snippets:assembleDebug` against the pinned material3 version.
+- `scripts/sync_snippets.py --check` fails the build if any markdown block differs from its
+  compiled region.
+- This site reads the same regions at build time.

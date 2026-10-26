@@ -1,0 +1,92 @@
+---
+// The 35 MaterialShapes, rendered from material3's own polygon definitions (verify/shapes-svg).
+// Click a shape to copy `MaterialShapes.<Name>.toShape()`.
+import shapes from '../data/shapes.json';
+
+interface Props {
+  limit?: number;
+}
+const { limit } = Astro.props;
+const list = limit ? shapes.shapes.slice(0, limit) : shapes.shapes;
+---
+
+<ul class="shape-gallery not-content" aria-label="The 35 MaterialShapes">
+  {
+    list.map((s) => (
+      <li>
+        <button type="button" data-copy={`MaterialShapes.${s.name}.toShape()`} title={`Copy MaterialShapes.${s.name}.toShape()`}>
+          <svg viewBox="-4 -4 108 108" aria-hidden="true">
+            <path d={s.path} />
+          </svg>
+          <span class="sg-name">{s.name}</span>
+          <span class="sg-copied">Copied</span>
+        </button>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .shape-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(6.25rem, 1fr));
+    gap: 0.5rem;
+    padding: 0;
+    margin: 1.5rem 0;
+    list-style: none;
+  }
+  .shape-gallery li {
+    margin: 0;
+  }
+  .shape-gallery button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100%;
+    padding: 0.9rem 0.4rem 0.7rem;
+    border: 0;
+    border-radius: var(--md-shape-xl);
+    background: var(--md-surface-container-low);
+    color: var(--md-on-surface-variant);
+    font: inherit;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition:
+      background-color var(--md-spring-default-effects-ms) var(--md-spring-default-effects),
+      border-radius var(--md-spring-expressive-fast-spatial-ms) var(--md-spring-expressive-fast-spatial);
+  }
+  .shape-gallery svg {
+    width: 3.5rem;
+    height: 3.5rem;
+    fill: var(--md-primary);
+    transition: transform var(--md-spring-expressive-fast-spatial-ms) var(--md-spring-expressive-fast-spatial);
+  }
+  .shape-gallery button:hover,
+  .shape-gallery button:focus-visible {
+    background: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+    border-radius: var(--md-shape-md);
+  }
+  .shape-gallery button:hover svg,
+  .shape-gallery button:focus-visible svg {
+    transform: rotate(18deg) scale(1.12);
+  }
+  .shape-gallery button:active svg {
+    transform: rotate(18deg) scale(0.9);
+  }
+  .sg-copied {
+    position: absolute;
+    inset: auto 0 0.65rem;
+    opacity: 0;
+    font-weight: 700;
+    color: var(--md-primary);
+  }
+  button[data-copied] .sg-name {
+    opacity: 0;
+  }
+  button[data-copied] .sg-copied {
+    opacity: 1;
+  }
+</style>

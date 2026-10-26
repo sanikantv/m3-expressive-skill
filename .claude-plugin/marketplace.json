@@ -1,0 +1,19 @@
+{
+  "name": "m3-expressive-skill",
+  "owner": { "name": "Sanikant" },
+  "metadata": {
+    "description": "Material 3 Expressive for Jetpack Compose, checked against material3 1.5.0-beta02",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "m3-expressive-compose",
+      "source": "./",
+      "description": "Build Material 3 Expressive UI in Jetpack Compose with code that compiles: API status per version, opt-ins, deprecations, theme, springs, shapes and every Expressive component.",
+      "version": "0.1.0",
+      "author": { "name": "Sanikant" },
+      "category": "development",
+      "keywords": ["material-3-expressive", "material3", "jetpack-compose", "android", "kotlin", "agent-skill"]
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+---
+title: Agent skills for Jetpack Compose UI
+description: What an agent skill is, why it helps Claude Code, Codex or Cursor write better Jetpack Compose UI than a prompt alone, and how to check a skill is accurate.
+keywords: [claude code skill jetpack compose, agent skill android, cursor skill compose, codex skill material 3]
+sidebar:
+  label: Agent skills for Compose
+  order: 7
+---
+
+import Install from '../../../components/Install.astro';
+import GuideEnd from '../../../components/GuideEnd.astro';
+
+**Short answer:** a skill is a folder holding a short `SKILL.md` and some reference files. The
+agent loads it when the task matches. For Compose, it fixes the main weakness of agents working
+from memory: they don't know which API version you're on. Check a skill by building the code it
+contains.
+
+## Why a skill and not a prompt
+
+- **It loads only when needed.** The agent reads a short description on every task and opens the
+  full skill only for Compose UI work, so it doesn't fill your context.
+- **It can be big where it matters.** API tables, deprecations and code samples live in
+  reference files that the agent opens on demand.
+- **It's shared and versioned.** Everyone on the team gets the same rules, updated in one place.
+
+## How to check a skill
+
+1. **Does it name the library version it was checked against?** Material 3 Expressive changed a
+   lot between 1.4.0, the 1.5.0 alphas and the betas.
+2. **Does its code compile?** Copy two samples into your project. If they need fixes, the
+   agent's output will too.
+3. **Does it say what's deprecated?** An agent without that keeps writing yesterday's API.
+
+This skill pins material3 1.5.0-beta02 and compiles its 28 samples in CI.
+
+<Install />
+
+<GuideEnd />

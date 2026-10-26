@@ -1,0 +1,9 @@
+{
+  "name": "m3-expressive-compose",
+  "version": "0.1.0",
+  "description": "Material 3 Expressive for Jetpack Compose, checked against androidx.compose.material3 1.5.0-beta02.",
+  "author": { "name": "Sanikant" },
+  "repository": "https://github.com/sanikantv/m3-expressive-skill",
+  "license": "MIT",
+  "keywords": ["material-3-expressive", "material3", "jetpack-compose", "android", "kotlin", "agent-skill"]
+}

@@ -1,0 +1,47 @@
+---
+title: How to make a Compose screen expressive
+description: A seven-step checklist to make a Jetpack Compose screen Material 3 Expressive — primary action, shape contrast, emphasized type, containers, selection, springs.
+keywords: [make compose screen expressive, material 3 expressive redesign, m3 expressive checklist]
+sidebar:
+  label: Make a screen expressive
+  order: 3
+---
+
+import Snippet from '../../../components/Snippet.astro';
+import Demo from '../../../components/Demo.astro';
+import GuideEnd from '../../../components/GuideEnd.astro';
+
+**Short answer:** find the one action and the one piece of information that matter most on the
+screen. Make them stand out with shape, color and emphasized type. Group the rest. Turn
+selections into shape changes, and animate with springs. Then stop.
+
+Google's research behind M3 Expressive found people spotted key UI elements up to four times
+faster on expressive screens. That only works if *one* thing stands out.
+
+## The checklist
+
+1. **Find the primary action and the key fact.** One of each.
+2. **Make the action bigger, with a contrasting shape and strong color.** For example, a medium
+   button, or a square-ish FAB next to a pill toolbar.
+3. **Emphasize the key fact.** Use `titleLargeEmphasized` or `displaySmallEmphasized`, and save
+   the huge display styles for hero screens.
+4. **Group the rest** in `surfaceContainer*` containers. The most important group gets the
+   brightest one.
+5. **Turn selection into shape:** connected `ToggleButton`s, `SegmentedListItem` selected states.
+6. **Morph instead of swapping**, and use `MaterialTheme.motionScheme` springs.
+7. **Stop and test:** light, dark, two dynamic color wallpapers, font scale 200%.
+
+<Demo kind="toolbar" caption="Step 2: a pill toolbar and a contrasting FAB" />
+
+<Snippet region="docked-to-floating" />
+
+## Hero moments: one or two per product
+
+Google's guidance is one or two hero moments per **product**, not per screen. Examples are a
+paywall, an onboarding finish or a "goal reached" screen. Everywhere else, keep it calm.
+
+<Snippet region="shape-highlight-chart" title="A small hero detail: Sunny badges only on goal days" />
+
+[The full design rules →](/reference/expressive-design/)
+
+<GuideEnd />

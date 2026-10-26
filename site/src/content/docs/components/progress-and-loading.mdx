@@ -1,0 +1,38 @@
+---
+title: Wavy progress and LoadingIndicator in Compose
+description: Use LinearWavyProgressIndicator, CircularWavyProgressIndicator and the shape-morphing LoadingIndicator in Jetpack Compose — which are stable and which need opt-in.
+keywords: [LoadingIndicator compose, wavy progress indicator compose, LinearWavyProgressIndicator, ContainedLoadingIndicator]
+sidebar:
+  label: Progress and loading
+---
+
+import Demo from '../../../components/Demo.astro';
+import Snippet from '../../../components/Snippet.astro';
+import GuideEnd from '../../../components/GuideEnd.astro';
+
+<Demo kind="progress" caption="Wavy linear progress with its gap and stop dot, wavy circular, and the loading indicator morphing through its real shape sequence" />
+
+| Wait | Use |
+|---|---|
+| Known progress, visible for a while (download, upload) | `LinearWavyProgressIndicator(progress = { … })` |
+| Unknown, short (loading a screen or list) | `LoadingIndicator()`, opt-in |
+| Over content or in pull-to-refresh | `ContainedLoadingIndicator()`, opt-in |
+| Dense or utilitarian UI | Flat `LinearProgressIndicator` / `CircularProgressIndicator` |
+
+The wavy indicators are stable in 1.5.0-beta02:
+
+<Snippet region="wavy-progress" />
+
+`LoadingIndicator` still needs an opt-in:
+
+<Snippet region="loading-indicator" />
+
+The demo above uses the real `IndeterminateIndicatorPolygons` sequence (SoftBurst, Cookie9Sided,
+Pentagon, Pill, Sunny, Cookie4Sided, Oval) and `Morph` output from `androidx.graphics.shapes`.
+
+In Google's examples the wave flattens into a straight bar when the work finishes. The track keeps
+a gap and a stop dot at the end.
+
+Related: [shapes](/reference/shapes/) · [API status](/reference/api-status/)
+
+<GuideEnd />

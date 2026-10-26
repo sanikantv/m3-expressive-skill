@@ -1,0 +1,182 @@
+---
+// Home page hero: the page's only H1, the install line, and a LoadingIndicator-style morph.
+import Icon from './Icon.astro';
+import LoadingMorph from './LoadingMorph.astro';
+import { MATERIAL3, REPO, REPO_SLUG, SKILL, SNIPPET_COUNT } from '../lib/site';
+
+const npx = `npx skills add ${REPO_SLUG} --skill ${SKILL}`;
+---
+
+<section class="hero-m3 not-content">
+  <div class="hero-copy">
+    <p class="hero-eyebrow">
+      <Icon name="auto_awesome" size={18} /> Agent skill · material3 {MATERIAL3}
+    </p>
+    <h1 id="_top">
+      Material 3 Expressive <span class="hero-emph">Compose code</span> your agent gets right
+    </h1>
+    <p class="hero-lead">
+      A skill for Claude Code, Codex, Cursor and Copilot. It knows which Expressive APIs are stable, which still need
+      an opt-in, and what changed since 1.4.0. Every Kotlin sample it reads is compiled in CI.
+    </p>
+    <div class="hero-actions">
+      <a class="md-btn" href="/getting-started/"><Icon name="rocket_launch" /> Get started</a>
+      <a class="md-btn tonal" href={REPO}><Icon name="code" /> View on GitHub</a>
+    </div>
+    <button class="hero-install" type="button" data-copy={npx} aria-label={`Copy install command: ${npx}`}>
+      <Icon name="terminal" size={20} />
+      <code>{npx}</code>
+      <Icon name="content_copy" size={20} class="copy-icon" />
+      <Icon name="check" size={20} class="done-icon" />
+    </button>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="hero-blob">
+      <LoadingMorph size={220} label="Animated loading indicator" />
+    </div>
+    <span class="hero-tag t1"><Icon name="check_circle" size={18} fill /> ButtonGroup stable</span>
+    <span class="hero-tag t2"><Icon name="science" size={18} /> LoadingIndicator opt-in</span>
+    <span class="hero-tag t3"><Icon name="verified" size={18} fill /> {SNIPPET_COUNT} snippets compile</span>
+  </div>
+</section>
+
+<style>
+  .hero-m3 {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: clamp(1.5rem, 4vw, 3rem) clamp(1.25rem, 4vw, 3rem);
+    margin-bottom: 2rem;
+    border-radius: var(--md-shape-xxl);
+    background: var(--md-surface-container-low);
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0 0 1rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--md-shape-full);
+    background: var(--md-secondary-container);
+    color: var(--md-on-secondary-container);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .hero-m3 h1 {
+    margin: 0;
+    font-size: clamp(2.4rem, 5.6vw, 4.2rem);
+    line-height: 1.04;
+    font-weight: 760;
+    font-stretch: 118%;
+    font-variation-settings: 'ROND' 100;
+    letter-spacing: -0.02em;
+    color: var(--md-on-surface);
+  }
+  .hero-emph {
+    color: var(--md-primary);
+  }
+  .hero-lead {
+    margin: 1.25rem 0 0;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--md-on-surface-variant);
+    max-width: 36rem;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+  .hero-install {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    max-width: 100%;
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    border: 0;
+    border-radius: var(--md-shape-lg);
+    background: var(--md-surface-container-highest);
+    color: var(--md-on-surface);
+    cursor: pointer;
+    font: inherit;
+    text-align: start;
+  }
+  .hero-install code,
+  .sl-markdown-content .hero-install code {
+    font-size: 0.85rem;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    overflow-wrap: anywhere;
+  }
+  .hero-install .done-icon,
+  .hero-install[data-copied] .copy-icon {
+    display: none;
+  }
+  .hero-install[data-copied] .done-icon {
+    display: inline-block;
+    color: var(--md-primary);
+  }
+  .hero-art {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 22rem;
+  }
+  .hero-blob {
+    display: grid;
+    place-items: center;
+    width: min(20rem, 70vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--md-primary-container);
+  }
+  .hero-tag {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 0.85rem;
+    border-radius: var(--md-shape-md);
+    background: var(--md-surface-container-lowest);
+    color: var(--md-on-surface);
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.18);
+    white-space: nowrap;
+  }
+  .hero-tag .msr {
+    color: var(--md-primary);
+  }
+  .t1 {
+    top: 8%;
+    left: 0;
+  }
+  .t2 {
+    top: 46%;
+    right: -4%;
+    background: var(--md-tertiary-container);
+    color: var(--md-on-tertiary-container);
+  }
+  .t2 .msr {
+    color: inherit;
+  }
+  .t3 {
+    bottom: 6%;
+    left: 10%;
+  }
+  @media (max-width: 60rem) {
+    .hero-m3 {
+      grid-template-columns: 1fr;
+    }
+    .hero-art {
+      min-height: 18rem;
+    }
+    .t2 {
+      right: 0;
+    }
+  }
+</style>

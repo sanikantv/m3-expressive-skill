@@ -1,0 +1,16 @@
+---
+import Icon from './Icon.astro';
+import { COMPONENTS } from '../data/components';
+---
+
+<div class="md-cards">
+  {
+    COMPONENTS.map((c) => (
+      <a class="md-card" href={`/components/${c.slug}/`}>
+        <Icon name={c.icon} />
+        <strong>{c.title}</strong>
+        <span>{c.blurb}</span>
+      </a>
+    ))
+  }
+</div>

@@ -1,0 +1,34 @@
+---
+title: ToggleButton in Jetpack Compose
+description: Material 3 Expressive ToggleButton in Compose — a button with checked state that changes color and shape. Filled, tonal, elevated and outlined variants.
+keywords: [ToggleButton compose, material 3 expressive toggle button, compose follow button]
+sidebar:
+  label: Toggle buttons
+---
+
+import Demo from '../../../components/Demo.astro';
+import Snippet from '../../../components/Snippet.astro';
+import GuideEnd from '../../../components/GuideEnd.astro';
+
+<Demo kind="toggle" caption="Tap: checked buttons turn square and filled" />
+
+`ToggleButton`, `FilledTonalToggleButton`, `ElevatedToggleButton` and `OutlinedToggleButton`
+(new in 1.5.0, stable in beta02) hold an on/off state. When checked they change **color and
+shape**: round when off, squarer when on.
+
+<Snippet region="toggle-button" />
+
+## When to use
+
+- A state that sticks: follow, favorite, bold, mute.
+- Use a [connected button group](/components/button-groups/) to choose one option from several.
+- Use a `Switch` for a setting that takes effect immediately in a list.
+
+## Accessibility
+
+`ToggleButton` already reports its checked state. Make the label say what it does ("Follow" /
+"Following"), not "On" / "Off".
+
+Related: [button groups](/components/button-groups/) · [icon buttons](/components/icon-buttons/)
+
+<GuideEnd />

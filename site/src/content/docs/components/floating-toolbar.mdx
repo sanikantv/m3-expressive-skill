@@ -1,0 +1,36 @@
+---
+title: Floating toolbar in Jetpack Compose
+description: Use HorizontalFloatingToolbar and VerticalFloatingToolbar from material3 1.5.0 — the Material 3 Expressive replacement for the bottom app bar, with a FAB and scroll-to-hide.
+keywords: [HorizontalFloatingToolbar, floating toolbar compose, bottom app bar replacement material 3 expressive, FloatingToolbarDefaults]
+sidebar:
+  label: Floating toolbar
+---
+
+import Demo from '../../../components/Demo.astro';
+import Snippet from '../../../components/Snippet.astro';
+import GuideEnd from '../../../components/GuideEnd.astro';
+
+<Demo kind="toolbar" caption="A pill toolbar with a selected tool, beside a contrasting FAB. Collapse it to the selected tool." />
+
+Floating toolbars replace the bottom app bar for contextual actions. In Google's before/after,
+a docked bar with a FAB becomes a floating pill toolbar with a separate FAB of a different shape
+and color.
+
+<Snippet region="floating-toolbar" />
+
+Colors: `vibrantFloatingToolbarColors()` (primary container) or `standardFloatingToolbarColors()`
+(surface container). To collapse a toolbar without a FAB to its main content, use the overload
+with `expanded`, `leadingContent` and `trailingContent`.
+
+## Before / after
+
+<Snippet region="docked-to-floating" />
+
+## Common mistakes
+
+- Placing it inside `Scaffold(bottomBar = …)`. It floats over content: align it bottom-centre in a `Box`, offset by `FloatingToolbarDefaults.ScreenOffset`.
+- Forgetting `Modifier.nestedScroll(exitAlways)` on the scrolling parent, which stops it hiding on scroll.
+
+Related: [FAB menu](/components/fab-menu/) · [flexible top app bar](/components/flexible-top-app-bar/)
+
+<GuideEnd />

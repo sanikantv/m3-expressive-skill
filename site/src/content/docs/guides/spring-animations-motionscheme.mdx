@@ -1,0 +1,34 @@
+---
+title: Spring animations with MotionScheme in Compose
+description: Replace tween() with Material 3 Expressive springs in Jetpack Compose using MaterialTheme.motionScheme — spatial vs effects specs, with the real damping and stiffness values.
+keywords: [MotionScheme compose, spring animation jetpack compose, material 3 expressive motion, defaultSpatialSpec]
+sidebar:
+  label: Spring animations
+  order: 4
+---
+
+import Snippet from '../../../components/Snippet.astro';
+import SpringDemo from '../../../components/SpringDemo.astro';
+import GuideEnd from '../../../components/GuideEnd.astro';
+
+**Short answer:** read `MaterialTheme.motionScheme` and pass one of its six specs as the
+`animationSpec`:
+- `defaultSpatialSpec()`, `fastSpatialSpec()` or `slowSpatialSpec()` for size, position, corners
+  and morphs
+- `…EffectsSpec()` for color and alpha
+
+With `MotionScheme.expressive()` the spatial specs bounce slightly. The effects specs never do.
+
+<SpringDemo />
+
+<Snippet region="motion-custom" />
+
+## Why not tween?
+
+A tween has a fixed duration and curve. When someone taps again mid-animation it either restarts
+or jumps. A spring keeps its velocity and retargets smoothly. Material components already use
+the theme's springs, so a custom `tween(300)` next to them looks out of place.
+
+[Spring values and scheme choice →](/reference/motion/)
+
+<GuideEnd />

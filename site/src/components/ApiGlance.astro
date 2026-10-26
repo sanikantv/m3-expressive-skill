@@ -1,0 +1,65 @@
+---
+// Key Expressive APIs and their status per material3 version (from references/api-status.md).
+import Icon from './Icon.astro';
+
+type S = 'stable' | 'optin' | 'internal' | 'missing';
+const rows: [string, S, S][] = [
+  ['MaterialExpressiveTheme · MotionScheme.expressive()', 'internal', 'stable'],
+  ['Typography.*Emphasized · Shapes.largeIncreased', 'internal', 'stable'],
+  ['ButtonGroup · ToggleButton · SplitButtonLayout', 'missing', 'stable'],
+  ['FloatingActionButtonMenu · MediumFloatingActionButton', 'missing', 'stable'],
+  ['HorizontalFloatingToolbar · LargeFlexibleTopAppBar', 'missing', 'stable'],
+  ['ShortNavigationBar · WideNavigationRail', 'stable', 'stable'],
+  ['SegmentedListItem · LinearWavyProgressIndicator', 'missing', 'stable'],
+  ['LoadingIndicator · ContainedLoadingIndicator', 'missing', 'optin'],
+  ['MaterialShapes · RoundedPolygon.toShape()', 'missing', 'optin'],
+];
+const label: Record<S, [string, string]> = {
+  stable: ['check_circle', 'Stable'],
+  optin: ['science', 'Opt-in'],
+  internal: ['lock', 'Internal'],
+  missing: ['remove', 'Not there'],
+};
+---
+
+<div class="api-glance">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">API</th>
+        <th scope="col">1.4.0</th>
+        <th scope="col">1.5.0-beta02</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map(([api, a, b]) => (
+          <tr>
+            <td>
+              <code>{api}</code>
+            </td>
+            {[a, b].map((s) => (
+              <td>
+                <span class:list={['md-chip', s === 'missing' ? 'internal' : s]}>
+                  <Icon name={label[s][0]} />
+                  {label[s][1]}
+                </span>
+              </td>
+            ))}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .api-glance code {
+    background: none;
+    padding: 0;
+    font-size: 0.85rem;
+  }
+  .api-glance td:not(:first-child) {
+    white-space: nowrap;
+  }
+</style>

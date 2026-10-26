@@ -1,0 +1,25 @@
+---
+title: SegmentedListItem for settings screens in Compose
+description: Build Material 3 Expressive settings screens with SegmentedListItem and ListItemDefaults.segmentedShapes in Jetpack Compose material3 1.5.0.
+keywords: [SegmentedListItem, compose settings screen material 3, ListItemDefaults segmentedShapes, expressive list compose]
+sidebar:
+  label: Segmented list
+---
+
+import Demo from '../../../components/Demo.astro';
+import Snippet from '../../../components/Snippet.astro';
+import GuideEnd from '../../../components/GuideEnd.astro';
+
+<Demo kind="list" caption="One rounded group, small gaps, larger corners on the first and last item. Tap a row." />
+
+`SegmentedListItem` gives settings screens the Expressive look: list items inside one rounded
+group, with larger corners on the first and last items. It has overloads for plain, `onClick`,
+`selected` and `checked` items.
+
+<Snippet region="segmented-list" />
+
+The `Switch` has `onCheckedChange = null` because the whole row is the toggle. That gives one touch target and one screen-reader announcement.
+
+Related: [toggle buttons](/components/toggle-buttons/) · [audit](/reference/audit/)
+
+<GuideEnd />

@@ -1,0 +1,43 @@
+---
+title: M3 Expressive skills compared
+description: How the M3 Expressive Compose skill compares with hamen/material-3-skill and abhixv/google-m3-expressive-design-skill, and with no skill at all.
+keywords: [material 3 skill comparison, m3 expressive design skill, best jetpack compose agent skill]
+sidebar:
+  label: Compared with other skills
+---
+
+There are three public Material skills for coding agents. They overlap less than their names
+suggest. Pick by what you need: design specs, broad Material 3 coverage, or Compose code that
+compiles against your version.
+
+| | **M3 Expressive Skill (this one)** | [hamen/material-3-skill](https://github.com/hamen/material-3-skill) | [abhixv/google-m3-expressive-design-skill](https://github.com/abhixv/google-m3-expressive-design-skill) |
+|---|---|---|---|
+| Focus | M3 Expressive **in Jetpack Compose** | Material 3 across Compose, Flutter, web | M3 / M3 Expressive design guidelines |
+| Platforms | Compose | Compose (primary), Flutter, web | Compose, Views, Flutter, web (design level) |
+| API status per material3 version | Yes: stable / opt-in / internal / missing for 1.4.0, alphas, beta01, beta02 | No | Platform availability table |
+| Deprecations since 1.4.0 with replacements | Yes | No | No |
+| Kotlin samples compiled in CI | Yes, 27, against 1.5.0-beta02 | No | No |
+| Exact design tokens and per-component dp | Spring values, shape scale, button sizes | Token tables | Extensive, from m3.material.io |
+| Reference images | No | No | Yes, about 2,600 official images |
+| Review / audit mode | Checklist + grep commands + report format | Scored compliance audit | Review against guidelines |
+| Docs website | [expressive.sanikant.dev](/) | No | No |
+| License | MIT | MIT | MIT |
+
+## When to use which
+
+- **You write Compose and want it to build first time:** this skill. Its main value is version
+  accuracy. For example, almost every Expressive API became stable in 1.5.0-beta02, and the skill
+  knows that.
+- **You need pixel specs, or design for several platforms:** abhixv's skill has far more design
+  detail and images. It and this skill work well together, one for the spec and one for the code.
+- **You need plain Material 3 on Flutter or web:** hamen's skill.
+
+## What each one gets wrong (as of 2026-10-26)
+
+Every skill falls behind as material3 changes, including this one. Facts that were out of date
+when this page was written:
+
+- abhixv's platform notes describe Compose Expressive APIs as experimental until 1.5.0. In
+  1.5.0-beta01 and beta02, most are already stable.
+- This skill covers 1.5.0-beta02. When a newer version ships, check the
+  [changelog](/changelog/) before relying on it.

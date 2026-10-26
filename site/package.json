@@ -1,0 +1,28 @@
+{
+  "name": "m3-expressive-skill-site",
+  "private": true,
+  "type": "module",
+  "description": "Docs and landing site for the M3 Expressive Compose agent skill, served at https://expressive.sanikant.dev",
+  "scripts": {
+    "shapes": "cd ../verify && ./gradlew -q :shapes-svg:run",
+    "snippets": "cd ../verify && ./gradlew :snippets:assembleDebug --console=plain -q",
+    "dev": "astro dev",
+    "build": "astro build && node scripts/fetch-icons.mjs && cp dist/404/index.html dist/404.html",
+    "build:all": "npm run snippets && npm run shapes && node scripts/gen-springs.mjs && node scripts/gen-logo.mjs && node scripts/gen-reference.mjs && npm run build",
+    "preview": "astro preview",
+    "deploy": "wrangler deploy",
+    "check": "node scripts/check-dist.mjs",
+    "og": "node scripts/render-og.mjs"
+  },
+  "dependencies": {
+    "@astrojs/starlight": "0.42.7",
+    "astro": "7.4.2",
+    "sharp": "0.35.5"
+  },
+  "devDependencies": {
+    "wrangler": "4.152.0"
+  },
+  "engines": {
+    "node": ">=22.23.4"
+  }
+}
