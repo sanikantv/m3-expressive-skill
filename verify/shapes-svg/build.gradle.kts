@@ -16,5 +16,5 @@ application {
 dependencies {
     implementation(libs.androidx.graphics.shapes.desktop)
     // graphics-shapes exposes FloatFloatPair (PointTransformer) but only declares collection at runtime.
-    implementation("androidx.collection:collection-jvm:1.5.0")
+    implementation("androidx.collection:collection-jvm:1.7.0")
 }
