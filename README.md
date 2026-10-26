@@ -102,9 +102,9 @@ skills/m3-expressive-compose/
     ├── shapes.md               35 MaterialShapes, clipping, morphing
     ├── components.md           code for every Expressive component
     └── audit.md                review checklist, grep commands, report format
-verify/                         Gradle project that compiles every snippet (+ shapes-svg: MaterialShapes → SVG)
+verify/                         Gradle project that compiles every snippet
 scripts/sync_snippets.py        copies compiled snippets into the markdown
-site/                           expressive.sanikant.dev (Astro + Starlight), see site/DEPLOY.md
+art/                            intro video, poster, social preview
 ```
 
 ## Keeping it current
@@ -115,7 +115,7 @@ When a new material3 version ships:
 2. Fix anything that no longer compiles: `cd verify && ./gradlew :snippets:assembleDebug`
 3. Copy the code into the docs: `python3 scripts/sync_snippets.py`
 4. Redo the tables in `api-status.md` (the steps are at the bottom of that file).
-5. Rebuild the site from the skill: `cd site && npm run build:all && npm run check`
+5. The docs site ([m3-expressive-skill-site](https://github.com/sanikantv/m3-expressive-skill-site)) rebuilds from this repo daily, or run its `npm run build:all`.
 
 ## Related
 

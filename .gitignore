@@ -38,17 +38,6 @@ secrets.properties
 .DS_Store
 Thumbs.db
 
-# --- Cloudflare / site ---
-.wrangler/
-node_modules/
-site/dist/
-site/.astro/
-site/public/api/
-site/og-src/
-verify/shapes-svg/build/
-
-# Copied from art/ by the site build (npm run media)
-site/public/media/
 
 # Intro video source (Remotion): kept locally, not published
 video/

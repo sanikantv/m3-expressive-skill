@@ -25,5 +25,3 @@ dependencyResolutionManagement {
 rootProject.name = "m3-expressive-skill-verify"
 // Compiles every Kotlin snippet shown in skills/m3-expressive-compose/references/. Not published.
 include(":snippets")
-// Renders MaterialShapes to SVG for the docs site. Not published.
-include(":shapes-svg")
