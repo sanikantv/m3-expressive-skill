@@ -4,12 +4,13 @@
 
 <p align="center">An agent skill that writes Material 3 Expressive Compose code that compiles, for Claude Code, Codex, Cursor and Copilot.</p>
 
-<p align="center"><a href="https://expressive.sanikant.dev"><b>📖 Docs, live demos and guides: expressive.sanikant.dev</b></a> · <a href="https://expressive.sanikant.dev/reference/api-status/">API status by version</a> · <a href="https://expressive.sanikant.dev/components/">Components</a></p>
+<p align="center"><a href="https://expressive.sanikant.dev"><b>📖 Docs, live demos and guides: expressive.sanikant.dev</b></a> · <a href="https://expressive.sanikant.dev/reference/api-status/">API status by version</a> · <a href="https://expressive.sanikant.dev/components/">Components</a> · <a href="https://www.skills.sh/sanikantv/m3-expressive-skill/m3-expressive-compose">skills.sh</a></p>
 
 <p align="center">
   <a href="https://github.com/sanikantv/m3-expressive-skill/actions/workflows/verify.yml"><img src="https://github.com/sanikantv/m3-expressive-skill/actions/workflows/verify.yml/badge.svg" alt="Snippets compile" /></a>
   <img src="https://img.shields.io/badge/material3-1.5.0--beta02-6750A4" alt="material3 1.5.0-beta02" />
   <img src="https://img.shields.io/badge/Compose-Material%203%20Expressive-E8DEF8" alt="Material 3 Expressive" />
+  <a href="https://www.skills.sh/sanikantv/m3-expressive-skill/m3-expressive-compose"><img src="https://img.shields.io/badge/skills.sh-m3--expressive--compose-000000" alt="Listed on skills.sh" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/github/license/sanikantv/m3-expressive-skill" alt="MIT license" /></a>
 </p>
 
@@ -38,7 +39,15 @@ that are already stable (or forget it on things that aren't), and they use APIs 
 
 ## Install
 
-**Claude Code**: inside a session
+**Any agent** (Claude Code, Codex, Cursor, Copilot and [more](https://github.com/vercel-labs/skills)): use the skills CLI
+
+```bash
+npx --yes skills add sanikantv/m3-expressive-skill --skill m3-expressive-compose -y
+```
+
+The skill is listed on [skills.sh](https://www.skills.sh/sanikantv/m3-expressive-skill/m3-expressive-compose).
+
+**Claude Code plugin**: inside a session
 
 ```text
 /plugin marketplace add sanikantv/m3-expressive-skill
@@ -55,7 +64,8 @@ claude plugin marketplace add sanikantv/m3-expressive-skill
 claude plugin install m3-expressive-compose@m3-expressive-skill
 ```
 
-Or copy the skill folder into a project (or into `~/.claude/skills/` for every project):
+**Copy the folder** into a project (or into `~/.claude/skills/` for every project), or point the
+agent at `skills/m3-expressive-compose/SKILL.md`:
 
 ```bash
 git clone https://github.com/sanikantv/m3-expressive-skill.git
@@ -64,14 +74,6 @@ git clone https://github.com/sanikantv/m3-expressive-skill.git
 ```bash
 cp -r m3-expressive-skill/skills/m3-expressive-compose .claude/skills/
 ```
-
-**Codex, Cursor, Copilot, others**: use the [skills CLI](https://github.com/vercel-labs/skills)
-
-```bash
-npx --yes skills add sanikantv/m3-expressive-skill --skill m3-expressive-compose -y
-```
-
-or point the agent at `skills/m3-expressive-compose/SKILL.md`.
 
 ## Use it
 
